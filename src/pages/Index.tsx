@@ -1,5 +1,4 @@
-import Sidebar from "@/components/Sidebar";
-import Header from "@/components/Header";
+import Layout from "@/components/Layout";
 import StatCard from "@/components/StatCard";
 import RecentIssuedBooks from "@/components/RecentIssuedBooks";
 import StatisticsChart from "@/components/StatisticsChart";
@@ -10,56 +9,48 @@ import { BookOpen, CheckCircle, Users, AlertTriangle } from "lucide-react";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Sidebar />
-      
-      <div className="ml-64">
-        <Header />
-        
-        <main className="p-6">
-          {/* Stats Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-            <StatCard 
-              icon={BookOpen} 
-              label="Total Books" 
-              value={4320} 
-              variant="blue" 
-            />
-            <StatCard 
-              icon={CheckCircle} 
-              label="Issued Books" 
-              value={380} 
-              variant="green" 
-            />
-            <StatCard 
-              icon={Users} 
-              label="Members" 
-              value={1250} 
-              variant="teal" 
-            />
-            <StatCard 
-              icon={AlertTriangle} 
-              label="Overdue Books" 
-              value={26} 
-              variant="red" 
-            />
-          </div>
-
-          {/* Middle Row */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-            <RecentIssuedBooks />
-            <StatisticsChart />
-          </div>
-
-          {/* Bottom Row */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <GenrePieChart />
-            <Notifications />
-            <QuickActions />
-          </div>
-        </main>
+    <Layout title="Dashboard">
+      {/* Stats Row */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <StatCard 
+          icon={BookOpen} 
+          label="Total Books" 
+          value={4320} 
+          variant="blue" 
+        />
+        <StatCard 
+          icon={CheckCircle} 
+          label="Issued Books" 
+          value={380} 
+          variant="green" 
+        />
+        <StatCard 
+          icon={Users} 
+          label="Members" 
+          value={1250} 
+          variant="teal" 
+        />
+        <StatCard 
+          icon={AlertTriangle} 
+          label="Overdue Books" 
+          value={26} 
+          variant="red" 
+        />
       </div>
-    </div>
+
+      {/* Middle Row */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <RecentIssuedBooks />
+        <StatisticsChart />
+      </div>
+
+      {/* Bottom Row */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <GenrePieChart />
+        <Notifications />
+        <QuickActions />
+      </div>
+    </Layout>
   );
 };
 
