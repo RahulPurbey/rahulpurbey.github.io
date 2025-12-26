@@ -1,11 +1,63 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Sidebar from "@/components/Sidebar";
+import Header from "@/components/Header";
+import StatCard from "@/components/StatCard";
+import RecentIssuedBooks from "@/components/RecentIssuedBooks";
+import StatisticsChart from "@/components/StatisticsChart";
+import GenrePieChart from "@/components/GenrePieChart";
+import Notifications from "@/components/Notifications";
+import QuickActions from "@/components/QuickActions";
+import { BookOpen, CheckCircle, Users, AlertTriangle } from "lucide-react";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-background">
+      <Sidebar />
+      
+      <div className="ml-64">
+        <Header />
+        
+        <main className="p-6">
+          {/* Stats Row */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <StatCard 
+              icon={BookOpen} 
+              label="Total Books" 
+              value={4320} 
+              variant="blue" 
+            />
+            <StatCard 
+              icon={CheckCircle} 
+              label="Issued Books" 
+              value={380} 
+              variant="green" 
+            />
+            <StatCard 
+              icon={Users} 
+              label="Members" 
+              value={1250} 
+              variant="teal" 
+            />
+            <StatCard 
+              icon={AlertTriangle} 
+              label="Overdue Books" 
+              value={26} 
+              variant="red" 
+            />
+          </div>
+
+          {/* Middle Row */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+            <RecentIssuedBooks />
+            <StatisticsChart />
+          </div>
+
+          {/* Bottom Row */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <GenrePieChart />
+            <Notifications />
+            <QuickActions />
+          </div>
+        </main>
       </div>
     </div>
   );
