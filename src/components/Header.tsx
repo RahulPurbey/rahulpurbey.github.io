@@ -1,9 +1,13 @@
 import { Monitor, Bell, Settings, User } from "lucide-react";
 
-const Header = () => {
+interface HeaderProps {
+  title: string;
+}
+
+const Header = ({ title }: HeaderProps) => {
   return (
     <header className="h-16 bg-card border-b border-border flex items-center justify-between px-6">
-      <h1 className="text-2xl font-bold text-foreground">Dashboard</h1>
+      <h1 className="text-2xl font-bold text-foreground">{title}</h1>
       
       <div className="flex items-center gap-4">
         <button className="p-2 hover:bg-muted rounded-lg transition-colors">
